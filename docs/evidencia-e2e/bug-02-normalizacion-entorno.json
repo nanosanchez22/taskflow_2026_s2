@@ -1,0 +1,9 @@
+{
+  "os": "win32",
+  "node": "v22.14.0",
+  "browser": "156.0.8078.4",
+  "clientTimezone": "America/Montevideo",
+  "serverTimezone": "America/Montevideo",
+  "retry": 0,
+  "repeatEachIndex": 0
+}

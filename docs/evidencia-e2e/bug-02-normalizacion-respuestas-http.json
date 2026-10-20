@@ -1,0 +1,221 @@
+[
+  {
+    "method": "GET",
+    "path": "/api/projects",
+    "request": null,
+    "status": 200,
+    "body": ""
+  },
+  {
+    "method": "GET",
+    "path": "/api/projects",
+    "request": null,
+    "status": 200,
+    "body": [
+      {
+        "id": "proj-18",
+        "name": "E2E 38235baa-182c-4a9e-ae2e-10bbf3cefaa6",
+        "description": null,
+        "ownerId": "user-52",
+        "archived": false,
+        "createdAt": "2026-10-20T22:04:56.664Z"
+      }
+    ]
+  },
+  {
+    "method": "GET",
+    "path": "/api/tasks/task-18/history",
+    "request": null,
+    "status": 200,
+    "body": [
+      {
+        "id": 18,
+        "taskId": "task-18",
+        "changedBy": "user-52",
+        "fromStatus": null,
+        "toStatus": "TODO",
+        "changedAt": "2026-10-20T22:04:56.710Z"
+      }
+    ]
+  },
+  {
+    "method": "GET",
+    "path": "/api/tasks/task-18/comments",
+    "request": null,
+    "status": 200,
+    "body": []
+  },
+  {
+    "method": "GET",
+    "path": "/api/projects",
+    "request": null,
+    "status": 200,
+    "body": [
+      {
+        "id": "proj-18",
+        "name": "E2E 38235baa-182c-4a9e-ae2e-10bbf3cefaa6",
+        "description": null,
+        "ownerId": "user-52",
+        "archived": false,
+        "createdAt": "2026-10-20T22:04:56.664Z"
+      }
+    ]
+  },
+  {
+    "method": "GET",
+    "path": "/api/tasks/task-18",
+    "request": null,
+    "status": 200,
+    "body": {
+      "id": "task-18",
+      "projectId": "proj-18",
+      "title": "Tarea original",
+      "description": "Descripción original",
+      "status": "TODO",
+      "priority": "MEDIUM",
+      "assigneeId": "user-53",
+      "dueDate": null,
+      "createdAt": "2026-10-20T22:04:56.704Z",
+      "updatedAt": "2026-10-20T22:04:56.704Z",
+      "tags": []
+    }
+  },
+  {
+    "method": "GET",
+    "path": "/api/tasks/task-18/history",
+    "request": null,
+    "status": 200,
+    "body": [
+      {
+        "id": 18,
+        "taskId": "task-18",
+        "changedBy": "user-52",
+        "fromStatus": null,
+        "toStatus": "TODO",
+        "changedAt": "2026-10-20T22:04:56.710Z"
+      }
+    ]
+  },
+  {
+    "method": "GET",
+    "path": "/api/projects/proj-18/tasks",
+    "request": null,
+    "status": 200,
+    "body": {
+      "items": [
+        {
+          "id": "task-18",
+          "projectId": "proj-18",
+          "title": "Tarea original",
+          "description": "Descripción original",
+          "status": "TODO",
+          "priority": "MEDIUM",
+          "assigneeId": "user-53",
+          "dueDate": null,
+          "createdAt": "2026-10-20T22:04:56.704Z",
+          "updatedAt": "2026-10-20T22:04:56.704Z",
+          "assignee": {
+            "id": "user-53",
+            "email": "member-e39269e0-f215-430b-9aa7-e1052abbafe1@test.com"
+          },
+          "commentCount": 0
+        }
+      ],
+      "total": 1,
+      "limit": 20,
+      "offset": 0
+    }
+  },
+  {
+    "method": "GET",
+    "path": "/api/tasks/task-18/comments",
+    "request": null,
+    "status": 200,
+    "body": []
+  },
+  {
+    "method": "GET",
+    "path": "/api/tasks/task-18",
+    "request": null,
+    "status": 200,
+    "body": {
+      "id": "task-18",
+      "projectId": "proj-18",
+      "title": "Tarea original",
+      "description": "Descripción original",
+      "status": "TODO",
+      "priority": "MEDIUM",
+      "assigneeId": "user-53",
+      "dueDate": null,
+      "createdAt": "2026-10-20T22:04:56.704Z",
+      "updatedAt": "2026-10-20T22:04:56.704Z",
+      "tags": []
+    }
+  },
+  {
+    "method": "GET",
+    "path": "/api/projects/proj-18/tasks",
+    "request": null,
+    "status": 200,
+    "body": {
+      "items": [
+        {
+          "id": "task-18",
+          "projectId": "proj-18",
+          "title": "Tarea original",
+          "description": "Descripción original",
+          "status": "TODO",
+          "priority": "MEDIUM",
+          "assigneeId": "user-53",
+          "dueDate": null,
+          "createdAt": "2026-10-20T22:04:56.704Z",
+          "updatedAt": "2026-10-20T22:04:56.704Z",
+          "assignee": {
+            "id": "user-53",
+            "email": "member-e39269e0-f215-430b-9aa7-e1052abbafe1@test.com"
+          },
+          "commentCount": 0
+        }
+      ],
+      "total": 1,
+      "limit": 20,
+      "offset": 0
+    }
+  },
+  {
+    "method": "POST",
+    "path": "/api/tasks/task-18/tags",
+    "request": {
+      "name": "  BuG  "
+    },
+    "status": 201,
+    "body": {
+      "id": "tag-14",
+      "name": "BuG"
+    }
+  },
+  {
+    "method": "GET",
+    "path": "/api/tasks/task-18",
+    "request": null,
+    "status": 200,
+    "body": {
+      "id": "task-18",
+      "projectId": "proj-18",
+      "title": "Tarea original",
+      "description": "Descripción original",
+      "status": "TODO",
+      "priority": "MEDIUM",
+      "assigneeId": "user-53",
+      "dueDate": null,
+      "createdAt": "2026-10-20T22:04:56.704Z",
+      "updatedAt": "2026-10-20T22:04:56.704Z",
+      "tags": [
+        {
+          "id": "tag-14",
+          "name": "BuG"
+        }
+      ]
+    }
+  }
+]

@@ -1,0 +1,586 @@
+{
+  "date": "2026-10-20",
+  "command": "npx playwright test --repeat-each=2",
+  "stats": {
+    "startTime": "2026-10-20T22:04:19.206Z",
+    "duration": 162026.336,
+    "expected": 36,
+    "skipped": 0,
+    "unexpected": 12,
+    "flaky": 0
+  },
+  "records": [
+    {
+      "file": "us-12.spec.ts",
+      "title": "feliz: un miembro edita título, descripción y prioridad [CA1,3]",
+      "groups": [
+        "us-12.spec.ts",
+        "US-12 — Editar tarea"
+      ],
+      "repeat": 0,
+      "status": "passed",
+      "errors": []
+    },
+    {
+      "file": "us-12.spec.ts",
+      "title": "error: rechaza título de 0 caracteres [CA2]",
+      "groups": [
+        "us-12.spec.ts",
+        "US-12 — Editar tarea"
+      ],
+      "repeat": 0,
+      "status": "passed",
+      "errors": []
+    },
+    {
+      "file": "us-12.spec.ts",
+      "title": "error: rechaza título de 2 caracteres [CA2]",
+      "groups": [
+        "us-12.spec.ts",
+        "US-12 — Editar tarea"
+      ],
+      "repeat": 0,
+      "status": "passed",
+      "errors": []
+    },
+    {
+      "file": "us-12.spec.ts",
+      "title": "error: rechaza título de 201 caracteres [CA2]",
+      "groups": [
+        "us-12.spec.ts",
+        "US-12 — Editar tarea"
+      ],
+      "repeat": 0,
+      "status": "passed",
+      "errors": []
+    },
+    {
+      "file": "us-12.spec.ts",
+      "title": "borde: acepta título de 3 caracteres [CA2]",
+      "groups": [
+        "us-12.spec.ts",
+        "US-12 — Editar tarea"
+      ],
+      "repeat": 0,
+      "status": "passed",
+      "errors": []
+    },
+    {
+      "file": "us-12.spec.ts",
+      "title": "borde: acepta título de 200 caracteres [CA2]",
+      "groups": [
+        "us-12.spec.ts",
+        "US-12 — Editar tarea"
+      ],
+      "repeat": 0,
+      "status": "passed",
+      "errors": []
+    },
+    {
+      "file": "us-12.spec.ts",
+      "title": "error: un miembro quitado no puede editar desde una pantalla abierta [CA5]",
+      "groups": [
+        "us-12.spec.ts",
+        "US-12 — Editar tarea"
+      ],
+      "repeat": 0,
+      "status": "failed",
+      "errors": [
+        "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 403\nReceived: 200\n\n  49 |     const response = await save(page, scenario.task.id);\n  50 |     const persisted = await readTask(request, scenario);\n> 51 |     expect.soft(response.status()).toBe(403);\n     |                                    ^\n  52 |     expect.soft(persisted.title).toBe(scenario.task.title);\n  53 |     await expect.soft(page.getByRole('alert')).toBeVisible();\n  54 |   });\n    at C:\\Users\\nanos\\Desktop\\Testing de Software\\taskflow_2026_s2\\e2e\\tests\\us-12.spec.ts:51:36",
+        "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: \"Tarea original\"\nReceived: \"Cambio sin permiso\"\n\n  50 |     const persisted = await readTask(request, scenario);\n  51 |     expect.soft(response.status()).toBe(403);\n> 52 |     expect.soft(persisted.title).toBe(scenario.task.title);\n     |                                  ^\n  53 |     await expect.soft(page.getByRole('alert')).toBeVisible();\n  54 |   });\n  55 | });\n    at C:\\Users\\nanos\\Desktop\\Testing de Software\\taskflow_2026_s2\\e2e\\tests\\us-12.spec.ts:52:34",
+        "Error: expect(locator).toBeVisible() failed\n\nLocator: getByRole('alert')\nExpected: visible\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n  - Expect \"soft toBeVisible\" getByRole('alert') with timeout 5000ms\n  - waiting for getByRole('alert')\n\n\n  51 |     expect.soft(response.status()).toBe(403);\n  52 |     expect.soft(persisted.title).toBe(scenario.task.title);\n> 53 |     await expect.soft(page.getByRole('alert')).toBeVisible();\n     |                                                ^\n  54 |   });\n  55 | });\n  56 |\n    at C:\\Users\\nanos\\Desktop\\Testing de Software\\taskflow_2026_s2\\e2e\\tests\\us-12.spec.ts:53:48"
+      ]
+    },
+    {
+      "file": "us-12.spec.ts",
+      "title": "feliz: un miembro edita título, descripción y prioridad [CA1,3]",
+      "groups": [
+        "us-12.spec.ts",
+        "US-12 — Editar tarea"
+      ],
+      "repeat": 1,
+      "status": "passed",
+      "errors": []
+    },
+    {
+      "file": "us-12.spec.ts",
+      "title": "error: rechaza título de 0 caracteres [CA2]",
+      "groups": [
+        "us-12.spec.ts",
+        "US-12 — Editar tarea"
+      ],
+      "repeat": 1,
+      "status": "passed",
+      "errors": []
+    },
+    {
+      "file": "us-12.spec.ts",
+      "title": "error: rechaza título de 2 caracteres [CA2]",
+      "groups": [
+        "us-12.spec.ts",
+        "US-12 — Editar tarea"
+      ],
+      "repeat": 1,
+      "status": "passed",
+      "errors": []
+    },
+    {
+      "file": "us-12.spec.ts",
+      "title": "error: rechaza título de 201 caracteres [CA2]",
+      "groups": [
+        "us-12.spec.ts",
+        "US-12 — Editar tarea"
+      ],
+      "repeat": 1,
+      "status": "passed",
+      "errors": []
+    },
+    {
+      "file": "us-12.spec.ts",
+      "title": "borde: acepta título de 3 caracteres [CA2]",
+      "groups": [
+        "us-12.spec.ts",
+        "US-12 — Editar tarea"
+      ],
+      "repeat": 1,
+      "status": "passed",
+      "errors": []
+    },
+    {
+      "file": "us-12.spec.ts",
+      "title": "borde: acepta título de 200 caracteres [CA2]",
+      "groups": [
+        "us-12.spec.ts",
+        "US-12 — Editar tarea"
+      ],
+      "repeat": 1,
+      "status": "passed",
+      "errors": []
+    },
+    {
+      "file": "us-12.spec.ts",
+      "title": "error: un miembro quitado no puede editar desde una pantalla abierta [CA5]",
+      "groups": [
+        "us-12.spec.ts",
+        "US-12 — Editar tarea"
+      ],
+      "repeat": 1,
+      "status": "failed",
+      "errors": [
+        "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 403\nReceived: 200\n\n  49 |     const response = await save(page, scenario.task.id);\n  50 |     const persisted = await readTask(request, scenario);\n> 51 |     expect.soft(response.status()).toBe(403);\n     |                                    ^\n  52 |     expect.soft(persisted.title).toBe(scenario.task.title);\n  53 |     await expect.soft(page.getByRole('alert')).toBeVisible();\n  54 |   });\n    at C:\\Users\\nanos\\Desktop\\Testing de Software\\taskflow_2026_s2\\e2e\\tests\\us-12.spec.ts:51:36",
+        "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: \"Tarea original\"\nReceived: \"Cambio sin permiso\"\n\n  50 |     const persisted = await readTask(request, scenario);\n  51 |     expect.soft(response.status()).toBe(403);\n> 52 |     expect.soft(persisted.title).toBe(scenario.task.title);\n     |                                  ^\n  53 |     await expect.soft(page.getByRole('alert')).toBeVisible();\n  54 |   });\n  55 | });\n    at C:\\Users\\nanos\\Desktop\\Testing de Software\\taskflow_2026_s2\\e2e\\tests\\us-12.spec.ts:52:34",
+        "Error: expect(locator).toBeVisible() failed\n\nLocator: getByRole('alert')\nExpected: visible\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n  - Expect \"soft toBeVisible\" getByRole('alert') with timeout 5000ms\n  - waiting for getByRole('alert')\n\n\n  51 |     expect.soft(response.status()).toBe(403);\n  52 |     expect.soft(persisted.title).toBe(scenario.task.title);\n> 53 |     await expect.soft(page.getByRole('alert')).toBeVisible();\n     |                                                ^\n  54 |   });\n  55 | });\n  56 |\n    at C:\\Users\\nanos\\Desktop\\Testing de Software\\taskflow_2026_s2\\e2e\\tests\\us-12.spec.ts:53:48"
+      ]
+    },
+    {
+      "file": "us-14.spec.ts",
+      "title": "feliz: un miembro no owner reasigna a otro miembro sin cambiar estado [CA2,4,5]",
+      "groups": [
+        "us-14.spec.ts",
+        "US-14 — Asignar tarea a un miembro"
+      ],
+      "repeat": 0,
+      "status": "passed",
+      "errors": []
+    },
+    {
+      "file": "us-14.spec.ts",
+      "title": "error: rechaza asignar a un usuario que dejó de ser miembro [CA1]",
+      "groups": [
+        "us-14.spec.ts",
+        "US-14 — Asignar tarea a un miembro"
+      ],
+      "repeat": 0,
+      "status": "passed",
+      "errors": []
+    },
+    {
+      "file": "us-14.spec.ts",
+      "title": "borde: desasigna enviando null y conserva el estado [CA3,5]",
+      "groups": [
+        "us-14.spec.ts",
+        "US-14 — Asignar tarea a un miembro"
+      ],
+      "repeat": 0,
+      "status": "passed",
+      "errors": []
+    },
+    {
+      "file": "us-14.spec.ts",
+      "title": "feliz: un miembro no owner reasigna a otro miembro sin cambiar estado [CA2,4,5]",
+      "groups": [
+        "us-14.spec.ts",
+        "US-14 — Asignar tarea a un miembro"
+      ],
+      "repeat": 1,
+      "status": "passed",
+      "errors": []
+    },
+    {
+      "file": "us-14.spec.ts",
+      "title": "error: rechaza asignar a un usuario que dejó de ser miembro [CA1]",
+      "groups": [
+        "us-14.spec.ts",
+        "US-14 — Asignar tarea a un miembro"
+      ],
+      "repeat": 1,
+      "status": "passed",
+      "errors": []
+    },
+    {
+      "file": "us-14.spec.ts",
+      "title": "borde: desasigna enviando null y conserva el estado [CA3,5]",
+      "groups": [
+        "us-14.spec.ts",
+        "US-14 — Asignar tarea a un miembro"
+      ],
+      "repeat": 1,
+      "status": "passed",
+      "errors": []
+    },
+    {
+      "file": "us-15.spec.ts",
+      "title": "feliz: agrega y quita una etiqueta [CA4,6]",
+      "groups": [
+        "us-15.spec.ts",
+        "US-15 — Etiquetar tareas"
+      ],
+      "repeat": 0,
+      "status": "passed",
+      "errors": []
+    },
+    {
+      "file": "us-15.spec.ts",
+      "title": "error: rechaza etiqueta \"\" [CA4]",
+      "groups": [
+        "us-15.spec.ts",
+        "US-15 — Etiquetar tareas"
+      ],
+      "repeat": 0,
+      "status": "passed",
+      "errors": []
+    },
+    {
+      "file": "us-15.spec.ts",
+      "title": "error: rechaza etiqueta \" \" [CA4]",
+      "groups": [
+        "us-15.spec.ts",
+        "US-15 — Etiquetar tareas"
+      ],
+      "repeat": 0,
+      "status": "passed",
+      "errors": []
+    },
+    {
+      "file": "us-15.spec.ts",
+      "title": "error: rechaza etiqueta \"xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\" [CA4]",
+      "groups": [
+        "us-15.spec.ts",
+        "US-15 — Etiquetar tareas"
+      ],
+      "repeat": 0,
+      "status": "passed",
+      "errors": []
+    },
+    {
+      "file": "us-15.spec.ts",
+      "title": "borde: acepta etiqueta de 1 caracteres [CA4]",
+      "groups": [
+        "us-15.spec.ts",
+        "US-15 — Etiquetar tareas"
+      ],
+      "repeat": 0,
+      "status": "passed",
+      "errors": []
+    },
+    {
+      "file": "us-15.spec.ts",
+      "title": "borde: acepta etiqueta de 30 caracteres [CA4]",
+      "groups": [
+        "us-15.spec.ts",
+        "US-15 — Etiquetar tareas"
+      ],
+      "repeat": 0,
+      "status": "passed",
+      "errors": []
+    },
+    {
+      "file": "us-15.spec.ts",
+      "title": "borde: admite diez etiquetas y rechaza la undécima [CA5]",
+      "groups": [
+        "us-15.spec.ts",
+        "US-15 — Etiquetar tareas"
+      ],
+      "repeat": 0,
+      "status": "passed",
+      "errors": []
+    },
+    {
+      "file": "us-15.spec.ts",
+      "title": "feliz: normaliza espacios y mayúsculas [CA1]",
+      "groups": [
+        "us-15.spec.ts",
+        "US-15 — Etiquetar tareas"
+      ],
+      "repeat": 0,
+      "status": "failed",
+      "errors": [
+        "Error: expect(received).toEqual(expected) // deep equality\n\n- Expected  - 1\n+ Received  + 1\n\n  Array [\n-   \"bug\",\n+   \"BuG\",\n  ]\n\n  54 |     const response = await addTag(page, scenario.task.id, '  BuG  ');\n  55 |     expect(response.status()).toBe(201);\n> 56 |     expect.soft((await readTask(request, scenario)).tags?.map(t => t.name)).toEqual(['bug']);\n     |                                                                             ^\n  57 |     await expect.soft(page.getByTestId('tag-chip-name')).toHaveText('bug');\n  58 |   });\n  59 |\n    at C:\\Users\\nanos\\Desktop\\Testing de Software\\taskflow_2026_s2\\e2e\\tests\\us-15.spec.ts:56:77",
+        "Error: expect(locator).toHaveText(expected) failed\n\nLocator:  getByTestId('tag-chip-name')\nExpected: \"bug\"\nReceived: \"BuG\"\nTimeout:  5000ms\n\nCall log:\n  - Expect \"soft toHaveText\" getByTestId('tag-chip-name') with timeout 5000ms\n  - waiting for getByTestId('tag-chip-name')\n    14 × locator resolved to <span data-testid=\"tag-chip-name\">BuG</span>\n       - unexpected value \"BuG\"\n\n\n  55 |     expect(response.status()).toBe(201);\n  56 |     expect.soft((await readTask(request, scenario)).tags?.map(t => t.name)).toEqual(['bug']);\n> 57 |     await expect.soft(page.getByTestId('tag-chip-name')).toHaveText('bug');\n     |                                                          ^\n  58 |   });\n  59 |\n  60 |   for (const repeated of ['bug', 'BUG']) {\n    at C:\\Users\\nanos\\Desktop\\Testing de Software\\taskflow_2026_s2\\e2e\\tests\\us-15.spec.ts:57:58"
+      ]
+    },
+    {
+      "file": "us-15.spec.ts",
+      "title": "borde: repetir bug devuelve 200 sin duplicar bug [CA2,3]",
+      "groups": [
+        "us-15.spec.ts",
+        "US-15 — Etiquetar tareas"
+      ],
+      "repeat": 0,
+      "status": "failed",
+      "errors": [
+        "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 200\nReceived: 201\n\n  65 |       const response = await addTag(page, scenario.task.id, repeated);\n  66 |       const persisted = await readTask(request, scenario);\n> 67 |       expect.soft(response.status()).toBe(200);\n     |                                      ^\n  68 |       expect.soft(persisted.tags?.map(t => t.name)).toEqual(['bug']);\n  69 |       await expect.soft(page.getByTestId('tag-chip')).toHaveCount(1);\n  70 |     });\n    at C:\\Users\\nanos\\Desktop\\Testing de Software\\taskflow_2026_s2\\e2e\\tests\\us-15.spec.ts:67:38",
+        "Error: expect(received).toEqual(expected) // deep equality\n\n- Expected  - 0\n+ Received  + 1\n\n  Array [\n    \"bug\",\n+   \"bug\",\n  ]\n\n  66 |       const persisted = await readTask(request, scenario);\n  67 |       expect.soft(response.status()).toBe(200);\n> 68 |       expect.soft(persisted.tags?.map(t => t.name)).toEqual(['bug']);\n     |                                                     ^\n  69 |       await expect.soft(page.getByTestId('tag-chip')).toHaveCount(1);\n  70 |     });\n  71 |   }\n    at C:\\Users\\nanos\\Desktop\\Testing de Software\\taskflow_2026_s2\\e2e\\tests\\us-15.spec.ts:68:53",
+        "Error: expect(locator).toHaveCount(expected) failed\n\nLocator:  getByTestId('tag-chip')\nExpected: 1\nReceived: 2\nTimeout:  5000ms\n\nCall log:\n  - Expect \"soft toHaveCount\" getByTestId('tag-chip') with timeout 5000ms\n  - waiting for getByTestId('tag-chip')\n    14 × locator resolved to 2 elements\n       - unexpected value \"2\"\n\n\n  67 |       expect.soft(response.status()).toBe(200);\n  68 |       expect.soft(persisted.tags?.map(t => t.name)).toEqual(['bug']);\n> 69 |       await expect.soft(page.getByTestId('tag-chip')).toHaveCount(1);\n     |                                                       ^\n  70 |     });\n  71 |   }\n  72 | });\n    at C:\\Users\\nanos\\Desktop\\Testing de Software\\taskflow_2026_s2\\e2e\\tests\\us-15.spec.ts:69:55"
+      ]
+    },
+    {
+      "file": "us-15.spec.ts",
+      "title": "borde: repetir BUG devuelve 200 sin duplicar bug [CA2,3]",
+      "groups": [
+        "us-15.spec.ts",
+        "US-15 — Etiquetar tareas"
+      ],
+      "repeat": 0,
+      "status": "failed",
+      "errors": [
+        "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 200\nReceived: 201\n\n  65 |       const response = await addTag(page, scenario.task.id, repeated);\n  66 |       const persisted = await readTask(request, scenario);\n> 67 |       expect.soft(response.status()).toBe(200);\n     |                                      ^\n  68 |       expect.soft(persisted.tags?.map(t => t.name)).toEqual(['bug']);\n  69 |       await expect.soft(page.getByTestId('tag-chip')).toHaveCount(1);\n  70 |     });\n    at C:\\Users\\nanos\\Desktop\\Testing de Software\\taskflow_2026_s2\\e2e\\tests\\us-15.spec.ts:67:38",
+        "Error: expect(received).toEqual(expected) // deep equality\n\n- Expected  - 0\n+ Received  + 1\n\n  Array [\n    \"bug\",\n+   \"BUG\",\n  ]\n\n  66 |       const persisted = await readTask(request, scenario);\n  67 |       expect.soft(response.status()).toBe(200);\n> 68 |       expect.soft(persisted.tags?.map(t => t.name)).toEqual(['bug']);\n     |                                                     ^\n  69 |       await expect.soft(page.getByTestId('tag-chip')).toHaveCount(1);\n  70 |     });\n  71 |   }\n    at C:\\Users\\nanos\\Desktop\\Testing de Software\\taskflow_2026_s2\\e2e\\tests\\us-15.spec.ts:68:53",
+        "Error: expect(locator).toHaveCount(expected) failed\n\nLocator:  getByTestId('tag-chip')\nExpected: 1\nReceived: 2\nTimeout:  5000ms\n\nCall log:\n  - Expect \"soft toHaveCount\" getByTestId('tag-chip') with timeout 5000ms\n  - waiting for getByTestId('tag-chip')\n    14 × locator resolved to 2 elements\n       - unexpected value \"2\"\n\n\n  67 |       expect.soft(response.status()).toBe(200);\n  68 |       expect.soft(persisted.tags?.map(t => t.name)).toEqual(['bug']);\n> 69 |       await expect.soft(page.getByTestId('tag-chip')).toHaveCount(1);\n     |                                                       ^\n  70 |     });\n  71 |   }\n  72 | });\n    at C:\\Users\\nanos\\Desktop\\Testing de Software\\taskflow_2026_s2\\e2e\\tests\\us-15.spec.ts:69:55"
+      ]
+    },
+    {
+      "file": "us-15.spec.ts",
+      "title": "feliz: agrega y quita una etiqueta [CA4,6]",
+      "groups": [
+        "us-15.spec.ts",
+        "US-15 — Etiquetar tareas"
+      ],
+      "repeat": 1,
+      "status": "passed",
+      "errors": []
+    },
+    {
+      "file": "us-15.spec.ts",
+      "title": "error: rechaza etiqueta \"\" [CA4]",
+      "groups": [
+        "us-15.spec.ts",
+        "US-15 — Etiquetar tareas"
+      ],
+      "repeat": 1,
+      "status": "passed",
+      "errors": []
+    },
+    {
+      "file": "us-15.spec.ts",
+      "title": "error: rechaza etiqueta \" \" [CA4]",
+      "groups": [
+        "us-15.spec.ts",
+        "US-15 — Etiquetar tareas"
+      ],
+      "repeat": 1,
+      "status": "passed",
+      "errors": []
+    },
+    {
+      "file": "us-15.spec.ts",
+      "title": "error: rechaza etiqueta \"xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\" [CA4]",
+      "groups": [
+        "us-15.spec.ts",
+        "US-15 — Etiquetar tareas"
+      ],
+      "repeat": 1,
+      "status": "passed",
+      "errors": []
+    },
+    {
+      "file": "us-15.spec.ts",
+      "title": "borde: acepta etiqueta de 1 caracteres [CA4]",
+      "groups": [
+        "us-15.spec.ts",
+        "US-15 — Etiquetar tareas"
+      ],
+      "repeat": 1,
+      "status": "passed",
+      "errors": []
+    },
+    {
+      "file": "us-15.spec.ts",
+      "title": "borde: acepta etiqueta de 30 caracteres [CA4]",
+      "groups": [
+        "us-15.spec.ts",
+        "US-15 — Etiquetar tareas"
+      ],
+      "repeat": 1,
+      "status": "passed",
+      "errors": []
+    },
+    {
+      "file": "us-15.spec.ts",
+      "title": "borde: admite diez etiquetas y rechaza la undécima [CA5]",
+      "groups": [
+        "us-15.spec.ts",
+        "US-15 — Etiquetar tareas"
+      ],
+      "repeat": 1,
+      "status": "passed",
+      "errors": []
+    },
+    {
+      "file": "us-15.spec.ts",
+      "title": "feliz: normaliza espacios y mayúsculas [CA1]",
+      "groups": [
+        "us-15.spec.ts",
+        "US-15 — Etiquetar tareas"
+      ],
+      "repeat": 1,
+      "status": "failed",
+      "errors": [
+        "Error: expect(received).toEqual(expected) // deep equality\n\n- Expected  - 1\n+ Received  + 1\n\n  Array [\n-   \"bug\",\n+   \"BuG\",\n  ]\n\n  54 |     const response = await addTag(page, scenario.task.id, '  BuG  ');\n  55 |     expect(response.status()).toBe(201);\n> 56 |     expect.soft((await readTask(request, scenario)).tags?.map(t => t.name)).toEqual(['bug']);\n     |                                                                             ^\n  57 |     await expect.soft(page.getByTestId('tag-chip-name')).toHaveText('bug');\n  58 |   });\n  59 |\n    at C:\\Users\\nanos\\Desktop\\Testing de Software\\taskflow_2026_s2\\e2e\\tests\\us-15.spec.ts:56:77",
+        "Error: expect(locator).toHaveText(expected) failed\n\nLocator:  getByTestId('tag-chip-name')\nExpected: \"bug\"\nReceived: \"BuG\"\nTimeout:  5000ms\n\nCall log:\n  - Expect \"soft toHaveText\" getByTestId('tag-chip-name') with timeout 5000ms\n  - waiting for getByTestId('tag-chip-name')\n    14 × locator resolved to <span data-testid=\"tag-chip-name\">BuG</span>\n       - unexpected value \"BuG\"\n\n\n  55 |     expect(response.status()).toBe(201);\n  56 |     expect.soft((await readTask(request, scenario)).tags?.map(t => t.name)).toEqual(['bug']);\n> 57 |     await expect.soft(page.getByTestId('tag-chip-name')).toHaveText('bug');\n     |                                                          ^\n  58 |   });\n  59 |\n  60 |   for (const repeated of ['bug', 'BUG']) {\n    at C:\\Users\\nanos\\Desktop\\Testing de Software\\taskflow_2026_s2\\e2e\\tests\\us-15.spec.ts:57:58"
+      ]
+    },
+    {
+      "file": "us-15.spec.ts",
+      "title": "borde: repetir bug devuelve 200 sin duplicar bug [CA2,3]",
+      "groups": [
+        "us-15.spec.ts",
+        "US-15 — Etiquetar tareas"
+      ],
+      "repeat": 1,
+      "status": "failed",
+      "errors": [
+        "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 200\nReceived: 201\n\n  65 |       const response = await addTag(page, scenario.task.id, repeated);\n  66 |       const persisted = await readTask(request, scenario);\n> 67 |       expect.soft(response.status()).toBe(200);\n     |                                      ^\n  68 |       expect.soft(persisted.tags?.map(t => t.name)).toEqual(['bug']);\n  69 |       await expect.soft(page.getByTestId('tag-chip')).toHaveCount(1);\n  70 |     });\n    at C:\\Users\\nanos\\Desktop\\Testing de Software\\taskflow_2026_s2\\e2e\\tests\\us-15.spec.ts:67:38",
+        "Error: expect(received).toEqual(expected) // deep equality\n\n- Expected  - 0\n+ Received  + 1\n\n  Array [\n    \"bug\",\n+   \"bug\",\n  ]\n\n  66 |       const persisted = await readTask(request, scenario);\n  67 |       expect.soft(response.status()).toBe(200);\n> 68 |       expect.soft(persisted.tags?.map(t => t.name)).toEqual(['bug']);\n     |                                                     ^\n  69 |       await expect.soft(page.getByTestId('tag-chip')).toHaveCount(1);\n  70 |     });\n  71 |   }\n    at C:\\Users\\nanos\\Desktop\\Testing de Software\\taskflow_2026_s2\\e2e\\tests\\us-15.spec.ts:68:53",
+        "Error: expect(locator).toHaveCount(expected) failed\n\nLocator:  getByTestId('tag-chip')\nExpected: 1\nReceived: 2\nTimeout:  5000ms\n\nCall log:\n  - Expect \"soft toHaveCount\" getByTestId('tag-chip') with timeout 5000ms\n  - waiting for getByTestId('tag-chip')\n    14 × locator resolved to 2 elements\n       - unexpected value \"2\"\n\n\n  67 |       expect.soft(response.status()).toBe(200);\n  68 |       expect.soft(persisted.tags?.map(t => t.name)).toEqual(['bug']);\n> 69 |       await expect.soft(page.getByTestId('tag-chip')).toHaveCount(1);\n     |                                                       ^\n  70 |     });\n  71 |   }\n  72 | });\n    at C:\\Users\\nanos\\Desktop\\Testing de Software\\taskflow_2026_s2\\e2e\\tests\\us-15.spec.ts:69:55"
+      ]
+    },
+    {
+      "file": "us-15.spec.ts",
+      "title": "borde: repetir BUG devuelve 200 sin duplicar bug [CA2,3]",
+      "groups": [
+        "us-15.spec.ts",
+        "US-15 — Etiquetar tareas"
+      ],
+      "repeat": 1,
+      "status": "failed",
+      "errors": [
+        "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 200\nReceived: 201\n\n  65 |       const response = await addTag(page, scenario.task.id, repeated);\n  66 |       const persisted = await readTask(request, scenario);\n> 67 |       expect.soft(response.status()).toBe(200);\n     |                                      ^\n  68 |       expect.soft(persisted.tags?.map(t => t.name)).toEqual(['bug']);\n  69 |       await expect.soft(page.getByTestId('tag-chip')).toHaveCount(1);\n  70 |     });\n    at C:\\Users\\nanos\\Desktop\\Testing de Software\\taskflow_2026_s2\\e2e\\tests\\us-15.spec.ts:67:38",
+        "Error: expect(received).toEqual(expected) // deep equality\n\n- Expected  - 0\n+ Received  + 1\n\n  Array [\n    \"bug\",\n+   \"BUG\",\n  ]\n\n  66 |       const persisted = await readTask(request, scenario);\n  67 |       expect.soft(response.status()).toBe(200);\n> 68 |       expect.soft(persisted.tags?.map(t => t.name)).toEqual(['bug']);\n     |                                                     ^\n  69 |       await expect.soft(page.getByTestId('tag-chip')).toHaveCount(1);\n  70 |     });\n  71 |   }\n    at C:\\Users\\nanos\\Desktop\\Testing de Software\\taskflow_2026_s2\\e2e\\tests\\us-15.spec.ts:68:53",
+        "Error: expect(locator).toHaveCount(expected) failed\n\nLocator:  getByTestId('tag-chip')\nExpected: 1\nReceived: 2\nTimeout:  5000ms\n\nCall log:\n  - Expect \"soft toHaveCount\" getByTestId('tag-chip') with timeout 5000ms\n  - waiting for getByTestId('tag-chip')\n    14 × locator resolved to 2 elements\n       - unexpected value \"2\"\n\n\n  67 |       expect.soft(response.status()).toBe(200);\n  68 |       expect.soft(persisted.tags?.map(t => t.name)).toEqual(['bug']);\n> 69 |       await expect.soft(page.getByTestId('tag-chip')).toHaveCount(1);\n     |                                                       ^\n  70 |     });\n  71 |   }\n  72 | });\n    at C:\\Users\\nanos\\Desktop\\Testing de Software\\taskflow_2026_s2\\e2e\\tests\\us-15.spec.ts:69:55"
+      ]
+    },
+    {
+      "file": "us-16.spec.ts",
+      "title": "feliz: guarda el mismo día calendario en UTC-3 [CA1,2,3]",
+      "groups": [
+        "us-16.spec.ts",
+        "US-16 — Fecha de vencimiento"
+      ],
+      "repeat": 0,
+      "status": "failed",
+      "errors": [
+        "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: \"2026-11-15\"\nReceived: \"2026-11-14\"\n\n   8 |     expect(response.status()).toBe(200);\n   9 |     const persisted = await readTask(request, scenario);\n> 10 |     expect.soft((await response.json()).dueDate).toBe('2026-11-15');\n     |                                                  ^\n  11 |     expect.soft(persisted.dueDate).toBe('2026-11-15');\n  12 |     await expect.soft(page.getByTestId('task-duedate-value')).toHaveText('2026-11-15');\n  13 |   });\n    at C:\\Users\\nanos\\Desktop\\Testing de Software\\taskflow_2026_s2\\e2e\\tests\\us-16.spec.ts:10:50",
+        "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: \"2026-11-15\"\nReceived: \"2026-11-14\"\n\n   9 |     const persisted = await readTask(request, scenario);\n  10 |     expect.soft((await response.json()).dueDate).toBe('2026-11-15');\n> 11 |     expect.soft(persisted.dueDate).toBe('2026-11-15');\n     |                                    ^\n  12 |     await expect.soft(page.getByTestId('task-duedate-value')).toHaveText('2026-11-15');\n  13 |   });\n  14 |\n    at C:\\Users\\nanos\\Desktop\\Testing de Software\\taskflow_2026_s2\\e2e\\tests\\us-16.spec.ts:11:36",
+        "Error: expect(locator).toHaveText(expected) failed\n\nLocator:  getByTestId('task-duedate-value')\nExpected: \"2026-11-15\"\nReceived: \"2026-11-14\"\nTimeout:  5000ms\n\nCall log:\n  - Expect \"soft toHaveText\" getByTestId('task-duedate-value') with timeout 5000ms\n  - waiting for getByTestId('task-duedate-value')\n    14 × locator resolved to <span data-testid=\"task-duedate-value\">2026-11-14</span>\n       - unexpected value \"2026-11-14\"\n\n\n  10 |     expect.soft((await response.json()).dueDate).toBe('2026-11-15');\n  11 |     expect.soft(persisted.dueDate).toBe('2026-11-15');\n> 12 |     await expect.soft(page.getByTestId('task-duedate-value')).toHaveText('2026-11-15');\n     |                                                               ^\n  13 |   });\n  14 |\n  15 |   test('error: rechaza formato DD/MM/YYYY [CA6]', async ({ page, request, scenario }) => {\n    at C:\\Users\\nanos\\Desktop\\Testing de Software\\taskflow_2026_s2\\e2e\\tests\\us-16.spec.ts:12:63"
+      ]
+    },
+    {
+      "file": "us-16.spec.ts",
+      "title": "error: rechaza formato DD/MM/YYYY [CA6]",
+      "groups": [
+        "us-16.spec.ts",
+        "US-16 — Fecha de vencimiento"
+      ],
+      "repeat": 0,
+      "status": "passed",
+      "errors": []
+    },
+    {
+      "file": "us-16.spec.ts",
+      "title": "borde: permite quitar el vencimiento enviando null [CA4,5]",
+      "groups": [
+        "us-16.spec.ts",
+        "US-16 — Fecha de vencimiento"
+      ],
+      "repeat": 0,
+      "status": "passed",
+      "errors": []
+    },
+    {
+      "file": "us-16.spec.ts",
+      "title": "borde: acepta una fecha pasada y conserva el día [CA3,7]",
+      "groups": [
+        "us-16.spec.ts",
+        "US-16 — Fecha de vencimiento"
+      ],
+      "repeat": 0,
+      "status": "failed",
+      "errors": [
+        "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: \"2020-01-01\"\nReceived: \"2019-12-31\"\n\n  45 |     const response = await save(page, scenario.task.id);\n  46 |     expect(response.status()).toBe(200);\n> 47 |     expect.soft((await readTask(request, scenario)).dueDate).toBe('2020-01-01');\n     |                                                              ^\n  48 |     await expect.soft(page.getByTestId('task-duedate-value')).toHaveText('2020-01-01');\n  49 |   });\n  50 | });\n    at C:\\Users\\nanos\\Desktop\\Testing de Software\\taskflow_2026_s2\\e2e\\tests\\us-16.spec.ts:47:62",
+        "Error: expect(locator).toHaveText(expected) failed\n\nLocator:  getByTestId('task-duedate-value')\nExpected: \"2020-01-01\"\nReceived: \"2019-12-31\"\nTimeout:  5000ms\n\nCall log:\n  - Expect \"soft toHaveText\" getByTestId('task-duedate-value') with timeout 5000ms\n  - waiting for getByTestId('task-duedate-value')\n    14 × locator resolved to <span data-testid=\"task-duedate-value\">2019-12-31</span>\n       - unexpected value \"2019-12-31\"\n\n\n  46 |     expect(response.status()).toBe(200);\n  47 |     expect.soft((await readTask(request, scenario)).dueDate).toBe('2020-01-01');\n> 48 |     await expect.soft(page.getByTestId('task-duedate-value')).toHaveText('2020-01-01');\n     |                                                               ^\n  49 |   });\n  50 | });\n  51 |\n    at C:\\Users\\nanos\\Desktop\\Testing de Software\\taskflow_2026_s2\\e2e\\tests\\us-16.spec.ts:48:63"
+      ]
+    },
+    {
+      "file": "us-16.spec.ts",
+      "title": "feliz: guarda el mismo día calendario en UTC-3 [CA1,2,3]",
+      "groups": [
+        "us-16.spec.ts",
+        "US-16 — Fecha de vencimiento"
+      ],
+      "repeat": 1,
+      "status": "failed",
+      "errors": [
+        "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: \"2026-11-15\"\nReceived: \"2026-11-14\"\n\n   8 |     expect(response.status()).toBe(200);\n   9 |     const persisted = await readTask(request, scenario);\n> 10 |     expect.soft((await response.json()).dueDate).toBe('2026-11-15');\n     |                                                  ^\n  11 |     expect.soft(persisted.dueDate).toBe('2026-11-15');\n  12 |     await expect.soft(page.getByTestId('task-duedate-value')).toHaveText('2026-11-15');\n  13 |   });\n    at C:\\Users\\nanos\\Desktop\\Testing de Software\\taskflow_2026_s2\\e2e\\tests\\us-16.spec.ts:10:50",
+        "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: \"2026-11-15\"\nReceived: \"2026-11-14\"\n\n   9 |     const persisted = await readTask(request, scenario);\n  10 |     expect.soft((await response.json()).dueDate).toBe('2026-11-15');\n> 11 |     expect.soft(persisted.dueDate).toBe('2026-11-15');\n     |                                    ^\n  12 |     await expect.soft(page.getByTestId('task-duedate-value')).toHaveText('2026-11-15');\n  13 |   });\n  14 |\n    at C:\\Users\\nanos\\Desktop\\Testing de Software\\taskflow_2026_s2\\e2e\\tests\\us-16.spec.ts:11:36",
+        "Error: expect(locator).toHaveText(expected) failed\n\nLocator:  getByTestId('task-duedate-value')\nExpected: \"2026-11-15\"\nReceived: \"2026-11-14\"\nTimeout:  5000ms\n\nCall log:\n  - Expect \"soft toHaveText\" getByTestId('task-duedate-value') with timeout 5000ms\n  - waiting for getByTestId('task-duedate-value')\n    14 × locator resolved to <span data-testid=\"task-duedate-value\">2026-11-14</span>\n       - unexpected value \"2026-11-14\"\n\n\n  10 |     expect.soft((await response.json()).dueDate).toBe('2026-11-15');\n  11 |     expect.soft(persisted.dueDate).toBe('2026-11-15');\n> 12 |     await expect.soft(page.getByTestId('task-duedate-value')).toHaveText('2026-11-15');\n     |                                                               ^\n  13 |   });\n  14 |\n  15 |   test('error: rechaza formato DD/MM/YYYY [CA6]', async ({ page, request, scenario }) => {\n    at C:\\Users\\nanos\\Desktop\\Testing de Software\\taskflow_2026_s2\\e2e\\tests\\us-16.spec.ts:12:63"
+      ]
+    },
+    {
+      "file": "us-16.spec.ts",
+      "title": "error: rechaza formato DD/MM/YYYY [CA6]",
+      "groups": [
+        "us-16.spec.ts",
+        "US-16 — Fecha de vencimiento"
+      ],
+      "repeat": 1,
+      "status": "passed",
+      "errors": []
+    },
+    {
+      "file": "us-16.spec.ts",
+      "title": "borde: permite quitar el vencimiento enviando null [CA4,5]",
+      "groups": [
+        "us-16.spec.ts",
+        "US-16 — Fecha de vencimiento"
+      ],
+      "repeat": 1,
+      "status": "passed",
+      "errors": []
+    },
+    {
+      "file": "us-16.spec.ts",
+      "title": "borde: acepta una fecha pasada y conserva el día [CA3,7]",
+      "groups": [
+        "us-16.spec.ts",
+        "US-16 — Fecha de vencimiento"
+      ],
+      "repeat": 1,
+      "status": "failed",
+      "errors": [
+        "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: \"2020-01-01\"\nReceived: \"2019-12-31\"\n\n  45 |     const response = await save(page, scenario.task.id);\n  46 |     expect(response.status()).toBe(200);\n> 47 |     expect.soft((await readTask(request, scenario)).dueDate).toBe('2020-01-01');\n     |                                                              ^\n  48 |     await expect.soft(page.getByTestId('task-duedate-value')).toHaveText('2020-01-01');\n  49 |   });\n  50 | });\n    at C:\\Users\\nanos\\Desktop\\Testing de Software\\taskflow_2026_s2\\e2e\\tests\\us-16.spec.ts:47:62",
+        "Error: expect(locator).toHaveText(expected) failed\n\nLocator:  getByTestId('task-duedate-value')\nExpected: \"2020-01-01\"\nReceived: \"2019-12-31\"\nTimeout:  5000ms\n\nCall log:\n  - Expect \"soft toHaveText\" getByTestId('task-duedate-value') with timeout 5000ms\n  - waiting for getByTestId('task-duedate-value')\n    14 × locator resolved to <span data-testid=\"task-duedate-value\">2019-12-31</span>\n       - unexpected value \"2019-12-31\"\n\n\n  46 |     expect(response.status()).toBe(200);\n  47 |     expect.soft((await readTask(request, scenario)).dueDate).toBe('2020-01-01');\n> 48 |     await expect.soft(page.getByTestId('task-duedate-value')).toHaveText('2020-01-01');\n     |                                                               ^\n  49 |   });\n  50 | });\n  51 |\n    at C:\\Users\\nanos\\Desktop\\Testing de Software\\taskflow_2026_s2\\e2e\\tests\\us-16.spec.ts:48:63"
+      ]
+    }
+  ]
+}

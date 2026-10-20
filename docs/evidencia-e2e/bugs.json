@@ -1,0 +1,22 @@
+[
+  {
+    "id": "BUG-01",
+    "title": "[Tareas] Un exmiembro puede editar una tarea desde el detalle abierto antes de su baja",
+    "severity": "alta"
+  },
+  {
+    "id": "BUG-02",
+    "title": "[Etiquetas] Se conservan las mayúsculas y BUG se agrega como una etiqueta distinta de bug",
+    "severity": "media"
+  },
+  {
+    "id": "BUG-03",
+    "title": "[Etiquetas] Agregar bug dos veces a la misma tarea crea un duplicado y devuelve 201",
+    "severity": "media"
+  },
+  {
+    "id": "BUG-04",
+    "title": "[Vencimiento] Guardar una fecha devuelve el día anterior cuando el servidor usa UTC-3",
+    "severity": "alta"
+  }
+]

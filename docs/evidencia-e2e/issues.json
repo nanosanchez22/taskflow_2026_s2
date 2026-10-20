@@ -1,0 +1,34 @@
+[
+  {
+    "id": "BUG-01",
+    "number": 4,
+    "title": "[Tareas] Un exmiembro puede editar una tarea desde el detalle abierto antes de su baja",
+    "url": "https://github.com/nanosanchez22/taskflow_2026_s2/issues/4",
+    "severity": "alta",
+    "captureAttached": false
+  },
+  {
+    "id": "BUG-02",
+    "number": 5,
+    "title": "[Etiquetas] Se conservan las mayúsculas y BUG se agrega como una etiqueta distinta de bug",
+    "url": "https://github.com/nanosanchez22/taskflow_2026_s2/issues/5",
+    "severity": "media",
+    "captureAttached": false
+  },
+  {
+    "id": "BUG-03",
+    "number": 6,
+    "title": "[Etiquetas] Agregar bug dos veces a la misma tarea crea un duplicado y devuelve 201",
+    "url": "https://github.com/nanosanchez22/taskflow_2026_s2/issues/6",
+    "severity": "media",
+    "captureAttached": false
+  },
+  {
+    "id": "BUG-04",
+    "number": 7,
+    "title": "[Vencimiento] Guardar una fecha devuelve el día anterior cuando el servidor usa UTC-3",
+    "url": "https://github.com/nanosanchez22/taskflow_2026_s2/issues/7",
+    "severity": "alta",
+    "captureAttached": false
+  }
+]

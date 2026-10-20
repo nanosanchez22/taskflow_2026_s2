@@ -6,3 +6,7 @@ coverage/
 .env
 server/tests/.tmp/
 .DS_Store
+e2e/.tmp/
+playwright-report/
+test-results/
+test-results-capturas/

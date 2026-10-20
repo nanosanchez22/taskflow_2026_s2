@@ -1,0 +1,209 @@
+[
+  {
+    "method": "GET",
+    "path": "/api/projects",
+    "request": null,
+    "status": 200,
+    "body": ""
+  },
+  {
+    "method": "GET",
+    "path": "/api/projects",
+    "request": null,
+    "status": 200,
+    "body": [
+      {
+        "id": "proj-7",
+        "name": "E2E bf4b3d76-e634-4b16-9f87-501615f40e2b",
+        "description": null,
+        "ownerId": "user-19",
+        "archived": false,
+        "createdAt": "2026-10-20T22:04:33.131Z"
+      }
+    ]
+  },
+  {
+    "method": "GET",
+    "path": "/api/tasks/task-7/history",
+    "request": null,
+    "status": 200,
+    "body": [
+      {
+        "id": 7,
+        "taskId": "task-7",
+        "changedBy": "user-19",
+        "fromStatus": null,
+        "toStatus": "TODO",
+        "changedAt": "2026-10-20T22:04:33.168Z"
+      }
+    ]
+  },
+  {
+    "method": "GET",
+    "path": "/api/tasks/task-7/comments",
+    "request": null,
+    "status": 200,
+    "body": []
+  },
+  {
+    "method": "GET",
+    "path": "/api/tasks/task-7",
+    "request": null,
+    "status": 200,
+    "body": {
+      "id": "task-7",
+      "projectId": "proj-7",
+      "title": "Tarea original",
+      "description": "Descripción original",
+      "status": "TODO",
+      "priority": "MEDIUM",
+      "assigneeId": "user-20",
+      "dueDate": null,
+      "createdAt": "2026-10-20T22:04:33.163Z",
+      "updatedAt": "2026-10-20T22:04:33.163Z",
+      "tags": []
+    }
+  },
+  {
+    "method": "GET",
+    "path": "/api/projects",
+    "request": null,
+    "status": 200,
+    "body": [
+      {
+        "id": "proj-7",
+        "name": "E2E bf4b3d76-e634-4b16-9f87-501615f40e2b",
+        "description": null,
+        "ownerId": "user-19",
+        "archived": false,
+        "createdAt": "2026-10-20T22:04:33.131Z"
+      }
+    ]
+  },
+  {
+    "method": "GET",
+    "path": "/api/tasks/task-7/history",
+    "request": null,
+    "status": 200,
+    "body": [
+      {
+        "id": 7,
+        "taskId": "task-7",
+        "changedBy": "user-19",
+        "fromStatus": null,
+        "toStatus": "TODO",
+        "changedAt": "2026-10-20T22:04:33.168Z"
+      }
+    ]
+  },
+  {
+    "method": "GET",
+    "path": "/api/tasks/task-7/comments",
+    "request": null,
+    "status": 200,
+    "body": []
+  },
+  {
+    "method": "GET",
+    "path": "/api/tasks/task-7",
+    "request": null,
+    "status": 200,
+    "body": {
+      "id": "task-7",
+      "projectId": "proj-7",
+      "title": "Tarea original",
+      "description": "Descripción original",
+      "status": "TODO",
+      "priority": "MEDIUM",
+      "assigneeId": "user-20",
+      "dueDate": null,
+      "createdAt": "2026-10-20T22:04:33.163Z",
+      "updatedAt": "2026-10-20T22:04:33.163Z",
+      "tags": []
+    }
+  },
+  {
+    "method": "GET",
+    "path": "/api/projects/proj-7/tasks",
+    "request": null,
+    "status": 200,
+    "body": {
+      "items": [
+        {
+          "id": "task-7",
+          "projectId": "proj-7",
+          "title": "Tarea original",
+          "description": "Descripción original",
+          "status": "TODO",
+          "priority": "MEDIUM",
+          "assigneeId": "user-20",
+          "dueDate": null,
+          "createdAt": "2026-10-20T22:04:33.163Z",
+          "updatedAt": "2026-10-20T22:04:33.163Z",
+          "assignee": {
+            "id": "user-20",
+            "email": "member-3886176a-182f-459e-9ad7-3e87a7b3230a@test.com"
+          },
+          "commentCount": 0
+        }
+      ],
+      "total": 1,
+      "limit": 20,
+      "offset": 0
+    }
+  },
+  {
+    "method": "GET",
+    "path": "/api/projects/proj-7/tasks",
+    "request": null,
+    "status": 200,
+    "body": {
+      "items": [
+        {
+          "id": "task-7",
+          "projectId": "proj-7",
+          "title": "Tarea original",
+          "description": "Descripción original",
+          "status": "TODO",
+          "priority": "MEDIUM",
+          "assigneeId": "user-20",
+          "dueDate": null,
+          "createdAt": "2026-10-20T22:04:33.163Z",
+          "updatedAt": "2026-10-20T22:04:33.163Z",
+          "assignee": {
+            "id": "user-20",
+            "email": "member-3886176a-182f-459e-9ad7-3e87a7b3230a@test.com"
+          },
+          "commentCount": 0
+        }
+      ],
+      "total": 1,
+      "limit": 20,
+      "offset": 0
+    }
+  },
+  {
+    "method": "PATCH",
+    "path": "/api/tasks/task-7",
+    "request": {
+      "title": "Cambio sin permiso",
+      "description": "Descripción original",
+      "priority": "MEDIUM",
+      "assigneeId": null,
+      "dueDate": null
+    },
+    "status": 200,
+    "body": {
+      "id": "task-7",
+      "projectId": "proj-7",
+      "title": "Cambio sin permiso",
+      "description": "Descripción original",
+      "status": "TODO",
+      "priority": "MEDIUM",
+      "assigneeId": null,
+      "dueDate": null,
+      "createdAt": "2026-10-20T22:04:33.163Z",
+      "updatedAt": "2026-10-20T22:04:33.756Z"
+    }
+  }
+]
