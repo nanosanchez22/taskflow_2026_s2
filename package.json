@@ -17,6 +17,9 @@
     "test:e2e": "playwright test",
     "test:e2e:types": "node server/node_modules/typescript/bin/tsc --project e2e/tsconfig.json --noEmit",
     "test:e2e:report": "playwright show-report",
+    "test:contract:consumer": "npm --prefix client run test:contract",
+    "test:contract:provider": "npm --prefix server run test:contract",
+    "test:contract": "npm run test:contract:consumer && npm run test:contract:provider",
     "lint": "npm --prefix server run lint",
     "postinstall": "npm --prefix server install && npm --prefix client install"
   },
