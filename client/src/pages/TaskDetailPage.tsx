@@ -332,12 +332,15 @@ export default function TaskDetailPage() {
           ))}
         </ul>
         <form className="form form-inline" data-testid="tag-add-form" onSubmit={onAddTag}>
-          <input
-            type="text"
-            data-testid="tag-add-input"
-            value={tagName}
-            onChange={(e) => setTagName(e.target.value)}
-          />
+          <label className="field">
+            <span>Nueva etiqueta</span>
+            <input
+              type="text"
+              data-testid="tag-add-input"
+              value={tagName}
+              onChange={(e) => setTagName(e.target.value)}
+            />
+          </label>
           <button type="submit" data-testid="tag-add-button">
             Agregar etiqueta
           </button>
@@ -348,11 +351,14 @@ export default function TaskDetailPage() {
       <section className="section" data-testid="task-comments-section">
         <h2>Comentarios</h2>
         <form className="form" data-testid="comment-add-form" onSubmit={onAddComment}>
-          <textarea
-            data-testid="comment-add-input"
-            value={commentBody}
-            onChange={(e) => setCommentBody(e.target.value)}
-          />
+          <label className="field">
+            <span>Comentario</span>
+            <textarea
+              data-testid="comment-add-input"
+              value={commentBody}
+              onChange={(e) => setCommentBody(e.target.value)}
+            />
+          </label>
           <button type="submit" data-testid="comment-add-button" disabled={postingComment}>
             Comentar
           </button>
