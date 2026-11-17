@@ -1,21 +1,18 @@
+import { Comment } from '@prisma/client';
 import { badRequest, forbidden, notFound } from '../../lib/http';
 import { toPublicId } from '../../lib/ids';
 import * as repo from './comments.repository';
 
 const MAX_LENGTH = 1000;
 
-export function serialize(c: any) {
-  try {
-    return {
-      id: toPublicId('comment', c.id),
-      taskId: toPublicId('task', c.taskId),
-      authorId: toPublicId('user', c.authorId),
-      body: c.body,
-      createdAt: c.createdAt.toISOString(),
-    };
-  } catch (e) {
-    return null;
-  }
+export function serialize(c: Comment) {
+  return {
+    id: toPublicId('comment', c.id),
+    taskId: toPublicId('task', c.taskId),
+    authorId: toPublicId('user', c.authorId),
+    body: c.body,
+    createdAt: c.createdAt.toISOString(),
+  };
 }
 
 export async function list(taskId: number) {
@@ -23,8 +20,8 @@ export async function list(taskId: number) {
   return rows.map(serialize);
 }
 
-export async function create(taskId: number, authorId: number, body: any) {
-  const text = typeof body?.body === 'string' ? body.body.trim() : '';
+export async function create(taskId: number, authorId: number, body: Record<string, unknown>) {
+  const text = typeof body.body === 'string' ? body.body.trim() : '';
   if (text.length < 1 || text.length > MAX_LENGTH) {
     throw badRequest(`Comment body must be between 1 and ${MAX_LENGTH} characters`);
   }
