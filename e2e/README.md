@@ -2,6 +2,8 @@
 
 Casos de US-12, US-14, US-15 y US-16 basados en `taskflow_especificacion_requerimientos.docx` v1.0. Los reportes de ejercicios anteriores quedan fuera de esta entrega.
 
+Los casos están en `tests/`. Los Page Objects (`BoardPage`, `TaskDetailPage`) están en `src/pages/`, el Component Object `TaskCard` en `src/components/`, y los fixtures y helpers de API en `support/fixtures.ts` (ver `ADR-001.md`).
+
 ## Ejecución
 
 Desde la raíz del repositorio, con las dependencias del proyecto instaladas:
