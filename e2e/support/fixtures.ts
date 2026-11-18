@@ -1,5 +1,6 @@
 import { test as base, expect, APIRequestContext, Page, Request } from '@playwright/test';
 import { randomUUID } from 'node:crypto';
+import { TaskDetailPage } from '../src/pages/TaskDetailPage';
 
 type Account = { user: { id: string; email: string }; token: string };
 export type Task = {
@@ -78,7 +79,8 @@ export const test = base.extend<{ scenario: Scenario; evidence: void }>({
 });
 export { expect };
 
-export async function openTask(page: Page, s: Scenario, account = s.member) {
+/** Inicia sesión por la UI y abre el detalle de la tarea del escenario. */
+export async function openTask(page: Page, s: Scenario, account = s.member): Promise<TaskDetailPage> {
   await page.goto('/login');
   await page.getByTestId('login-email-input').fill(account.user.email);
   await page.getByTestId('login-password-input').fill('Password1');
@@ -87,37 +89,12 @@ export async function openTask(page: Page, s: Scenario, account = s.member) {
     page.getByTestId('login-submit').click(),
   ]);
   await page.waitForURL('**/projects');
-  await Promise.all([
-    page.waitForResponse(r => new URL(r.url()).pathname === `/api/tasks/${s.task.id}` && r.request().method() === 'GET'),
-    page.goto(`/projects/${s.project.id}/tasks/${s.task.id}`),
-  ]);
-  await expect(page.getByTestId('task-title-input')).toHaveValue(s.task.title);
+  const detail = new TaskDetailPage(page, s.task.id);
+  await detail.goto(s.project.id);
+  await expect(detail.titleInput).toHaveValue(s.task.title);
   // useMembers carga las opciones mediante otra solicitud real.
-  await expect(page.getByTestId('task-assignee-select').locator(`option[value="${s.owner.user.id}"]`)).toHaveCount(1);
-}
-
-export async function save(page: Page, taskId: string) {
-  const [response] = await Promise.all([
-    page.waitForResponse(r => new URL(r.url()).pathname === `/api/tasks/${taskId}` && r.request().method() === 'PATCH'),
-    page.getByTestId('task-save-button').click(),
-  ]);
-  await response.finished();
-  await expect(page.getByTestId('task-save-button')).toBeEnabled();
-  return response;
-}
-
-export async function addTag(page: Page, taskId: string, name: string) {
-  await page.getByTestId('tag-add-input').fill(name);
-  const [response] = await Promise.all([
-    page.waitForResponse(r => new URL(r.url()).pathname === `/api/tasks/${taskId}/tags` && r.request().method() === 'POST'),
-    page.getByTestId('tag-add-button').click(),
-  ]);
-  await response.finished();
-  if (response.ok()) {
-    await expect(page.getByTestId('task-title-input')).toBeVisible();
-    await expect(page.getByTestId('tag-add-input')).toHaveValue('');
-  }
-  return response;
+  await expect(detail.assigneeOption(s.owner.user.id)).toHaveCount(1);
+  return detail;
 }
 
 export async function readTask(request: APIRequestContext, s: Scenario): Promise<Task> {

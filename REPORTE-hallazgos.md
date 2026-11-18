@@ -67,6 +67,10 @@ en cada `if` en vez de acumular).
       at Object.<anonymous> (tests/hallazgos-taller-clase5.test.ts:79:28)
 ```
 
+**Severidad:** media. Al combinar filtros, el listado mezcla tareas de otro estado y el usuario ve datos incorrectos. Hay alternativa: filtrar por un solo criterio a la vez.
+
+**Reproducibilidad:** 5 de 5 veces en local (`npx jest --runInBand hallazgos-taller-clase5`, 17/11/2026) y 1 de 1 en GitHub Actions (`ubuntu-latest`, UTC; run 44182907759 sobre `main`, 17/11/2026). El caso insuficiente, que deja el bug oculto, pasó 5 de 5.
+
 **Ambiente:** ver tabla común arriba.
 
 ---
@@ -107,6 +111,10 @@ viola el RNF de Seguridad #1. Fuera del alcance del taller, pero registrado.)_
 
 Caso de control que pasa: `?search=Login` (respetando mayúsculas) sí devuelve la tarea — confirma que el
 defecto es específicamente la sensibilidad a mayúsculas/minúsculas.
+
+**Severidad:** media. La búsqueda no encuentra tareas que existen, salvo que el usuario escriba las mayúsculas exactas. Hay alternativa, pero falla el uso más común, que es buscar en minúscula.
+
+**Reproducibilidad:** 5 de 5 veces en local (`npx jest --runInBand hallazgos-taller-clase5`, 17/11/2026) y 1 de 1 en GitHub Actions (`ubuntu-latest`, UTC; run 44182907759 sobre `main`, 17/11/2026). El control que respeta mayúsculas pasó 5 de 5.
 
 **Ambiente:** ver tabla común arriba.
 
@@ -151,6 +159,10 @@ Defecto en el código: `server/src/modules/comments/comments.repository.ts:3-7` 
       at Object.<anonymous> (tests/hallazgos-taller-clase5.test.ts:152:59)
 ```
 
+**Severidad:** baja. Los comentarios llegan completos y solo cambia el orden. Cuesta seguir la conversación, pero no se pierde información.
+
+**Reproducibilidad:** 5 de 5 veces en local (`npx jest --runInBand hallazgos-taller-clase5`, 17/11/2026) y 1 de 1 en GitHub Actions (`ubuntu-latest`, UTC; run 44182907759 sobre `main`, 17/11/2026).
+
 **Ambiente:** ver tabla común arriba.
 
 ---
@@ -187,15 +199,19 @@ Defecto en el código: `server/src/lib/validation.ts:20`.
       at Object.<anonymous> (tests/hallazgos-taller-clase5.test.ts:171:24)
 ```
 
+**Severidad:** media. La política de contraseñas queda un carácter por debajo de lo especificado (7 en lugar de 8). No expone datos por sí sola, pero es un control de seguridad que no cumple la spec.
+
+**Reproducibilidad:** 5 de 5 veces en local (`npx jest --runInBand hallazgos-taller-clase5`, 17/11/2026) y 1 de 1 en GitHub Actions (`ubuntu-latest`, UTC; run 44182907759 sobre `main`, 17/11/2026). Los controles de 8 y 9 caracteres pasaron 5 de 5.
+
 **Ambiente:** ver tabla común arriba.
 
 ---
 
 ## Resumen
 
-| #   | Módulo      | Endpoint                                  | Criterio   | Esperado | Obtenido |
-| --- | ----------- | ----------------------------------------- | ---------- | -------- | -------- |
-| 1   | Filtros     | `GET /projects/:id/tasks?status&priority` | US-07 CA#5 | 3        | 5        |
-| 2   | Búsqueda    | `GET /projects/:id/tasks?search=login`    | US-07 CA#4 | 1        | 0        |
-| 3   | Comentarios | `GET /tasks/:id/comments`                 | US-08 CA#4 | asc      | desc     |
-| 4   | Auth        | `POST /auth/register` (pass 7 chars)      | US-01 CA#3 | 400      | 201      |
+| #   | Módulo      | Endpoint                                  | Criterio   | Esperado | Obtenido | Severidad | Reproducibilidad       |
+| --- | ----------- | ----------------------------------------- | ---------- | -------- | -------- | --------- | ---------------------- |
+| 1   | Filtros     | `GET /projects/:id/tasks?status&priority` | US-07 CA#5 | 3        | 5        | Media     | 5/5 local · 1/1 GitHub |
+| 2   | Búsqueda    | `GET /projects/:id/tasks?search=login`    | US-07 CA#4 | 1        | 0        | Media     | 5/5 local · 1/1 GitHub |
+| 3   | Comentarios | `GET /tasks/:id/comments`                 | US-08 CA#4 | asc      | desc     | Baja      | 5/5 local · 1/1 GitHub |
+| 4   | Auth        | `POST /auth/register` (pass 7 chars)      | US-01 CA#3 | 400      | 201      | Media     | 5/5 local · 1/1 GitHub |

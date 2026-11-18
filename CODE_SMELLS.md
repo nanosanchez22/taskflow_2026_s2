@@ -1,6 +1,6 @@
 # Detección de código pestilente — TaskFlow
 
-Se identificaron cinco problemas de calidad: cuatro refactorizados y uno documentado como pendiente. La captura de la consigna no enumera los nombres de los cinco smells; los siguientes corresponden a los hallazgos de esta revisión.
+Se identificaron y refactorizaron cinco problemas de calidad.
 
 ## 1. Función demasiado larga (Long Method)
 
@@ -79,13 +79,26 @@ También se repetía el mismo error para membresía inexistente y rol sin permis
 
 **Problema:** cualquier excepción durante la serialización se convierte en `null`. Por ejemplo, una fecha inválida podría producir un elemento nulo en el listado sin revelar el fallo al manejador de errores. Además, el parámetro `c: any` impide verificar estáticamente su estructura.
 
-**Mejora propuesta:** tipar el comentario y permitir que los errores inesperados lleguen al manejador de errores existente, definiendo y verificando el resultado esperado para esos casos.
+**Refactorización aplicada — propagar el error y tipar:** se quitó el `try/catch` y `serialize` recibe el tipo `Comment` de Prisma. El `body` de `create` pasó de `any` a `Record<string, unknown>`, igual que en los demás servicios.
 
-**Estado:** documentado, pendiente de corrección. Quitar el `catch` cambiaría la respuesta observable ante errores: actualmente devuelve `null`; al propagar la excepción, la API respondería con un error 500. Se conserva el código para mantener el alcance de refactorización sin cambios de comportamiento. La consigna permite documentar hallazgos aunque no se refactoricen todos.
+**Cambio de comportamiento:** un error inesperado al serializar ya no se convierte en un `null` dentro del listado: llega al manejador de errores existente, que responde 500. Con datos válidos la respuesta es la misma. Este cambio también deja el lint sin errores.
+
+**Estado:** refactorizado.
 
 ## Verificación
 
 - **Punto de partida:** verificamos que la suite existente pasaba antes de los cambios.
 - **Compilación:** `npm run build` finalizó correctamente después de las refactorizaciones.
 - **Suite existente:** ejecutamos `npm test` después de las refactorizaciones y confirmamos que todos los tests pasan.
-- **Integridad:** no se modificaron ni agregaron tests en el resultado final. No se cambiaron dependencias ni configuración de pruebas.
+- **Integridad:** los refactores de los smells 1 a 4 no modificaron ni agregaron tests. No se cambiaron dependencias ni configuración de pruebas.
+- **Tests de caracterización de `updateTask`:** se agregaron después de la corrección y antes de seguir refactorizando, en [caracterizacion-update-task.test.ts](server/tests/caracterizacion-update-task.test.ts). Son 28 tests que fijan el comportamiento actual de `PATCH /api/tasks/:taskId`:
+  - el asignado, el owner y el admin, cada uno con todas las transiciones;
+  - quién recibe 403;
+  - qué queda en el historial;
+  - el orden de las reglas.
+
+  Se comprobó que detectan regresiones: quitar el rol ADMIN de `assertCanChangeStatus` hace fallar 6 tests, e invertir el orden entre validación y permiso hace fallar 1.
+- **Diferencias con la spec:** dos de esos tests fijan comportamientos que contradicen la spec, y están marcados así en el archivo.
+  - TODO → DONE se acepta, aunque US-06 CA2 lo prohíbe. Ya estaba anotado con `it.failing` en `cobertura-ramas.test.ts`.
+  - Un exmiembro que sigue asignado puede cambiar el estado, aunque US-06 CA6 pide que sea miembro vigente. Es un hallazgo nuevo.
+- **Smell 5:** después de quitar el `try/catch`, `npm run lint` termina sin errores, y los tests de comentarios (`comments.test.ts` y `cobertura-ramas.test.ts`) pasan.

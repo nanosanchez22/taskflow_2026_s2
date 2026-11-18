@@ -1,72 +1,69 @@
-import { test, expect, openTask, addTag, readTask } from '../support/fixtures';
+import { test, expect, openTask, readTask } from '../support/fixtures';
 
 test.describe('US-15 — Etiquetar tareas', () => {
   test('feliz: agrega y quita una etiqueta [CA4,6]', async ({ page, request, scenario }) => {
-    await openTask(page, scenario);
-    const response = await addTag(page, scenario.task.id, 'backend');
+    const detail = await openTask(page, scenario);
+    const response = await detail.addTag('backend');
     expect(response.status()).toBe(201);
-    await expect(page.getByTestId('tag-chip-name')).toHaveText('backend');
+    await expect(detail.tagChipNames).toHaveText('backend');
     const tag = await response.json();
-    const [removed] = await Promise.all([
-      page.waitForResponse(r => new URL(r.url()).pathname === `/api/tasks/${scenario.task.id}/tags/${tag.id}` && r.request().method() === 'DELETE'),
-      page.getByTestId('tag-remove-button').click(),
-    ]);
+    const removed = await detail.removeTag(tag);
     expect(removed.status()).toBe(204);
-    await expect(page.getByTestId('tag-chip')).toHaveCount(0);
+    await expect(detail.tagChips).toHaveCount(0);
     expect((await readTask(request, scenario)).tags).toEqual([]);
   });
 
   for (const name of ['', ' ', 'x'.repeat(31)]) {
     test(`error: rechaza etiqueta ${JSON.stringify(name)} [CA4]`, async ({ page, request, scenario }) => {
-      await openTask(page, scenario);
-      const response = await addTag(page, scenario.task.id, name);
+      const detail = await openTask(page, scenario);
+      const response = await detail.addTag(name);
       expect(response.status()).toBe(400);
       expect((await response.json()).error.code).toBe('VALIDATION_ERROR');
-      await expect(page.getByTestId('task-tags-section').getByRole('alert')).toBeVisible();
+      await expect(detail.tagsAlert).toBeVisible();
       expect((await readTask(request, scenario)).tags).toEqual([]);
     });
   }
 
   for (const length of [1, 30]) {
     test(`borde: acepta etiqueta de ${length} caracteres [CA4]`, async ({ page, scenario }) => {
-      await openTask(page, scenario);
-      const response = await addTag(page, scenario.task.id, 'x'.repeat(length));
+      const detail = await openTask(page, scenario);
+      const response = await detail.addTag('x'.repeat(length));
       expect(response.status()).toBe(201);
-      await expect(page.getByTestId('tag-chip-name')).toHaveText('x'.repeat(length));
+      await expect(detail.tagChipNames).toHaveText('x'.repeat(length));
     });
   }
 
   test('borde: admite diez etiquetas y rechaza la undécima [CA5]', async ({ page, request, scenario }) => {
-    await openTask(page, scenario);
+    const detail = await openTask(page, scenario);
     for (let i = 1; i <= 10; i++) {
-      const response = await addTag(page, scenario.task.id, `etiqueta-${i}`);
+      const response = await detail.addTag(`etiqueta-${i}`);
       expect(response.status()).toBe(201);
-      await expect(page.getByTestId('tag-chip')).toHaveCount(i);
+      await expect(detail.tagChips).toHaveCount(i);
     }
-    const response = await addTag(page, scenario.task.id, 'etiqueta-11');
+    const response = await detail.addTag('etiqueta-11');
     expect(response.status()).toBe(400);
-    await expect(page.getByTestId('tag-chip')).toHaveCount(10);
+    await expect(detail.tagChips).toHaveCount(10);
     expect((await readTask(request, scenario)).tags).toHaveLength(10);
   });
 
   test('feliz: normaliza espacios y mayúsculas [CA1]', async ({ page, request, scenario }) => {
-    await openTask(page, scenario);
-    const response = await addTag(page, scenario.task.id, '  BuG  ');
+    const detail = await openTask(page, scenario);
+    const response = await detail.addTag('  BuG  ');
     expect(response.status()).toBe(201);
     expect.soft((await readTask(request, scenario)).tags?.map(t => t.name)).toEqual(['bug']);
-    await expect.soft(page.getByTestId('tag-chip-name')).toHaveText('bug');
+    await expect.soft(detail.tagChipNames).toHaveText('bug');
   });
 
   for (const repeated of ['bug', 'BUG']) {
     test(`borde: repetir ${repeated} devuelve 200 sin duplicar bug [CA2,3]`, async ({ page, request, scenario }) => {
-      await openTask(page, scenario);
-      expect((await addTag(page, scenario.task.id, 'bug')).status()).toBe(201);
-      await expect(page.getByTestId('tag-chip')).toHaveCount(1);
-      const response = await addTag(page, scenario.task.id, repeated);
+      const detail = await openTask(page, scenario);
+      expect((await detail.addTag('bug')).status()).toBe(201);
+      await expect(detail.tagChips).toHaveCount(1);
+      const response = await detail.addTag(repeated);
       const persisted = await readTask(request, scenario);
       expect.soft(response.status()).toBe(200);
       expect.soft(persisted.tags?.map(t => t.name)).toEqual(['bug']);
-      await expect.soft(page.getByTestId('tag-chip')).toHaveCount(1);
+      await expect.soft(detail.tagChips).toHaveCount(1);
     });
   }
 });

@@ -1,6 +1,8 @@
 import type { Page } from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
 import { test, expect } from '../support/fixtures';
+import { BoardPage } from '../src/pages/BoardPage';
+import { TaskDetailPage } from '../src/pages/TaskDetailPage';
 
 /**
  * Adaptado del test de la clase 12 a la estructura de este repositorio.
@@ -65,9 +67,9 @@ const VISTAS: {
       await iniciarSesion(page, datos.owner.user.email);
       await page.getByTestId('project-card-name').click();
       await expect(page).toHaveURL(`/projects/${datos.project.id}`);
-      await expect(page.getByTestId('task-card-title')).toHaveText(datos.task.title);
-      await expect(page.getByTestId('task-create-assignee-select')
-        .locator(`option[value="${datos.owner.user.id}"]`)).toHaveCount(1);
+      const board = new BoardPage(page);
+      await expect(board.cardById(datos.task.id).title).toHaveText(datos.task.title);
+      await expect(board.createAssigneeOption(datos.owner.user.id)).toHaveCount(1);
     },
   },
   // Esta pantalla se recorre también durante la prueba de XSS de la guía.
@@ -76,11 +78,11 @@ const VISTAS: {
     nombre: 'Detalle de tarea',
     abrir: async (page, datos) => {
       await iniciarSesion(page, datos.owner.user.email);
-      await page.goto(`/projects/${datos.project.id}/tasks/${datos.task.id}`);
-      await expect(page.getByTestId('task-title-input')).toHaveValue(datos.task.title);
-      await expect(page.getByTestId('task-assignee-select')
-        .locator(`option[value="${datos.owner.user.id}"]`)).toHaveCount(1);
-      await expect(page.getByTestId('comment-add-input')).toBeVisible();
+      const detail = new TaskDetailPage(page, datos.task.id);
+      await detail.goto(datos.project.id);
+      await expect(detail.titleInput).toHaveValue(datos.task.title);
+      await expect(detail.assigneeOption(datos.owner.user.id)).toHaveCount(1);
+      await expect(detail.commentInput).toBeVisible();
     },
   },
 ];

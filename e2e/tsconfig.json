@@ -9,5 +9,5 @@
     "types": ["node"],
     "typeRoots": ["../server/node_modules/@types"]
   },
-  "include": ["./support/**/*.ts", "./tests/**/*.ts", "../playwright.config.ts"]
+  "include": ["./src/**/*.ts", "./support/**/*.ts", "./tests/**/*.ts", "../playwright.config.ts"]
 }
